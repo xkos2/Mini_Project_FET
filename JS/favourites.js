@@ -1,61 +1,78 @@
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to create a button with a specified data-item value
-    function createButton(item) {
-        var button = document.createElement("button");
-        button.className = "add-to-favorites";
-        button.setAttribute("data-item", item);
-        button.textContent = "Add to Favorites";
+    $(document).ready(function () {
+        axios.get('http://localhost:3000/movies')
+            .then(res => {
+                const curr = res.data;
+                console.log(curr);
+                addMovies(curr);
+            })
+            .catch(e => {
+                console.log("Error on Movies Route", e)
+            })
 
-        // Add an event listener to handle button clicks
-        button.addEventListener("click", function () {
-            toggleFavorite(button, item);
-        });
+        function addMovies(items) {
+            var favoriteList = document.getElementById("favourite_list");
+            items.forEach(item => {
+                var tile = document.createElement("div");
+                tile.classList.add("col-3");
+                tile.innerHTML = `<img class="img-thumbnail" src=\"${item.Images[0]}\">`;
+                let tileButton = createButton(item.Images[0]);
+                tile.append(tileButton);
+                favoriteList.append(tile);
+            });
+        }
 
-        return button;
-    }
+        function createButton(item) {
+            var button = document.createElement("button");
+            button.className = "add-to-favorites btn btn-info my-1";
+            button.setAttribute("data-item", item);
+            button.textContent = "Add to Favorites";
 
-    // Function to add an item to the favorite list
-    function addToFavorites(item) {
-        var colDiv = document.createElement("div");
-        colDiv.className = "col-3";
-        colDiv.textContent = item;
+            button.addEventListener("click", function () {
+                toggleFavorite(button, item);
+            });
 
-        var favoriteList = document.getElementById("favourite_list");
-        favoriteList.appendChild(colDiv);
-    }
+            return button;
+        }
 
-    // Function to remove an item from the favorite list
-    function removeFromFavorites(item) {
-        var favoriteList = document.getElementById("favourite_list");
-        var items = favoriteList.getElementsByClassName("col-3");
+        function addToFavorites(item) {
+            var colDiv = document.createElement("div");
+            colDiv.className = "col-12";
+            colDiv.textContent = item;
 
-        for (var i = 0; i < items.length; i++) {
-            if (items[i].textContent === item) {
-                favoriteList.removeChild(items[i]);
-                break;
+            var favList = document.querySelector(".fav_list");
+            favList.appendChild(colDiv);
+        }
+
+        function removeFromFavorites(item) {
+            var favList = document.querySelector(".fav_list");
+            var items = favList.getElementsByClassName("col-12");
+
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].textContent === item) {
+                    favList.removeChild(items[i]);
+                    break;
+                }
             }
         }
-    }
 
-    // Function to toggle the favorite state and update button appearance
-    function toggleFavorite(button, item) {
-        if (button.classList.contains("added")) {
-            // Item is already in favorites, remove it
-            button.classList.remove("added");
-            removeFromFavorites(item);
-        } else {
-            // Add the item to favorites
-            addToFavorites(item);
-            // Update button appearance
-            button.classList.add("added");
+        function toggleFavorite(button, item) {
+            if (button.classList.contains("added")) {
+                // Item is already in favorites, remove it
+                button.classList.remove("btn-success");
+                button.className = "btn btn-info";
+                button.classList.remove("added");
+                removeFromFavorites(item);
+            } else {
+                // Add the item to favorites
+                addToFavorites(item);
+                // Update button appearance
+                button.className = "btn btn-success";
+                button.classList.add("added");
+
+            }
         }
-    }
 
-    // Create buttons automatically with different data-item values
-    var items = ["Item 1", "Item 2", "Item 3"];
-
-    for (var i = 0; i < items.length; i++) {
-        var button = createButton(items[i]);
-        document.getElementById("favourite_list").appendChild(button);
-    }
+    });
 });
