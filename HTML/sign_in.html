@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tvflix is a movie recommendation app made for my project work. #CAP615"
+    />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../CSS/sign-inAndsign-out.css" />
+    <title>Tvflix | Sign in</title>
+  </head>
+  <body>
+    <div class="container sign-in-mode">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form class="sign-in-form" id="sign_in">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="email" name="email" id="email" placeholder="email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>Join now to unlock the full movie experience! Sign up today.</p>
+            <button class="btn transparent" id="sign-up-btn">Sign up</button>
+          </div>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="../JS/plugins.js"></script>
+    <script src="../JS/sign_in.js"></script>
+  </body>
+</html>
