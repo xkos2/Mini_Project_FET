@@ -25,6 +25,9 @@ $(document).ready(function () {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.length > 0) {
+                        const user = res.data[0].token;
+                        sessionStorage.setItem('user', JSON.stringify(user));
+                        console.log(res.data);
                         window.location.href = 'index.html';
                     } else {
                         alert("Invalid password or email");
