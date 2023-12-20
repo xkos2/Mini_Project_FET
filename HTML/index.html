@@ -1,11 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>THis is home page</h1>
-  </body>
-</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            padding-top: 56px;
+        }
+
+        .jumbotron {
+            background: url('background-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 0;
+        }
+
+        .card {
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link,
+        .btn {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand font-weight-bold" href="#">Netflix Clone</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">TV Shows</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="#">My List</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item font-weight-bold" href="#">Profile</a>
+                        <a class="dropdown-item font-weight-bold" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item font-weight-bold" href="#" onclick="logout()">Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Search Form -->
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0 mr-2 font-weight-bold" type="submit">Search</button>
+            </form>
+            <!-- End Search Form -->
+            <!-- Sign Out Button -->
+            <button class="btn btn-danger my-2 my-sm-0 font-weight-bold" onclick="logout()">Sign Out</button>
+            <!-- End Sign Out Button -->
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4 font-weight-bold">Unlimited movies, TV shows, and more.</h1>
+        <p class="lead font-weight-bold">Watch anywhere. Cancel anytime.</p>
+        <a class="btn btn-danger btn-lg font-weight-bold" href="#" role="button">Try it now</a>
+    </div>
+
+    <!-- Movie/TV Show Cards -->
+    <div class="container">
+        <div class="row">
+            <!-- Example Card (Replace with dynamic data) -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="movie1.jpg" class="card-img-top" alt="Movie 1">
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">Movie 1</h5>
+                        <p class="card-text font-weight-bold">Description for Movie 1.</p>
+                        <a href="#" class="btn btn-primary font-weight-bold">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards dynamically based on data from the server -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+       
