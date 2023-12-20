@@ -1,0 +1,25 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.rating-container {
+    text-align: center;
+}
+
+.star {
+    color: #ddd;
+    margin: 0 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.star:hover,
+.star.active {
+    color: #ffcc00;
+}
+
